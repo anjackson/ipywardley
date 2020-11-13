@@ -9,6 +9,8 @@ This plugin makes it easy to generate [Wardley Maps](https://wardley-maps-commun
 
 It supports a subset of the syntax defined by the [Online Wardley Maps](https://onlinewardleymaps.com/) service. This simple language can be use to specify the map via the `%%wardley` cell magic. [See this example notebook to see how it works](https://github.com/anjackson/ipywardley/blob/main/test/wardley-maps.ipynb).
 
+![example-map](https://github.com/anjackson/ipywardley/blob/main/doc/example.png)
+
 ## To Do
 
 - [ ] Support most/all of the OWM syntax and features.
