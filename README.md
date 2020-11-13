@@ -1,5 +1,9 @@
 # ipywardley
-Wardley map magic for IPython notebooks
+Bringing Wardley Map magic to Jupyter notebooks
+
+[![PyPI version](https://badge.fury.io/py/ipywardley.svg)](https://badge.fury.io/py/ipywardley)
+
+## Introduction
 
 This plugin makes it easy to generate [Wardley Maps](https://wardley-maps-community.github.io/awesome-wardley-maps/) using [Jupyter Notebooks](https://jupyter.org/).
 
