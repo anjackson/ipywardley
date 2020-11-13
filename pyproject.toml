@@ -1,0 +1,16 @@
+[build-system]
+requires = [
+    "flit_core >=2,<4",
+    "ipython", 
+    "matplotlib"
+]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "ipywardley"
+author = "Andrew N. Jackson"
+author-email = "anj@anjackson.net"
+home-page = "https://anjackson.net/"
+classifiers = ["License :: OSI Approved :: Apache Software License"]
+description-file = "README.md"
+
