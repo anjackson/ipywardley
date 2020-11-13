@@ -14,5 +14,8 @@ It supports a subset of the syntax defined by the [Online Wardley Maps](https://
 ## To Do
 
 - [ ] Support most/all of the OWM syntax and features.
+- [ ] Make 'Visibility' axis optional.
+- [ ] Add 'Uncharted' and 'Industrialised' labels.
+- [ ] Offer the [different sets of x-axis labels](https://twitter.com/swardley/status/1326583279139627008/photo/1). 
 - [ ] Support rendering from a file, via e.g. `%wardley file=example.owm style=plain`
 - [ ] Make it easier to download the SVG/rendered version?
