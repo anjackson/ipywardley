@@ -6,6 +6,11 @@ requires = [
 ]
 build-backend = "flit_core.buildapi"
 
+[tool.flit.metadata.requires-extra]
+test = [
+    "jupyterlab"
+]
+
 [tool.flit.metadata]
 module = "ipywardley"
 author = "Andrew N. Jackson"

@@ -2,7 +2,6 @@ from IPython.core.magic import register_cell_magic
 from IPython.core.magic import (Magics, magics_class, line_magic,
                                 cell_magic, line_cell_magic)
 from IPython.display import clear_output, display, HTML
-import ipywidgets as widgets
 
 import matplotlib
 import matplotlib.pyplot as plt
