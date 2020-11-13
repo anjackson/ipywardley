@@ -3,7 +3,7 @@ Wardley map magic for IPython notebooks
 
 This plugin makes it easy to generate [Wardley Maps](https://wardley-maps-community.github.io/awesome-wardley-maps/) using [Jupyter Notebooks](https://jupyter.org/).
 
-It supports a subset of the syntax defined by the [Online Wardley Maps](https://onlinewardleymaps.com/) service. This simple language can be use to specify the map via the `%%wardley` cell magic. See [here for an example notebook](./test/wardley-maps.ipynb).
+It supports a subset of the syntax defined by the [Online Wardley Maps](https://onlinewardleymaps.com/) service. This simple language can be use to specify the map via the `%%wardley` cell magic. [See this example notebook to see how it works](https://github.com/anjackson/ipywardley/blob/main/test/wardley-maps.ipynb).
 
 ## To Do
 

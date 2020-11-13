@@ -15,7 +15,7 @@ test = [
 module = "ipywardley"
 author = "Andrew N. Jackson"
 author-email = "anj@anjackson.net"
-home-page = "https://anjackson.net/"
+home-page = "https://github.com/anjackson/ipywardley"
 classifiers = ["License :: OSI Approved :: Apache Software License"]
 description-file = "README.md"
 
