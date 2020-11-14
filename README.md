@@ -9,6 +9,10 @@ This plugin makes it easy to generate [Wardley Maps](https://wardley-maps-commun
 
 It supports a subset of the syntax defined by the [Online Wardley Maps](https://onlinewardleymaps.com/) service. This simple language can be use to specify the map via the `%%wardley` cell magic. 
 
+## Try it out!
+
+Run on [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/anjackson/ipywardley/main?filepath=test%2Fwardley-maps.ipynb) or [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/anjackson/ipywardley/blob/main/test/wardley-maps.ipynb)
+
 ## Installation
 
 First, [install Jupyter](https://jupyter.org/install). Then before running it, install `ipywardley`. e.g. if you are using pip:
