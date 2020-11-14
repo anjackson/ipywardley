@@ -1,15 +1,8 @@
 [build-system]
 requires = [
-    "flit_core >=2,<4",
-    "ipython", 
-    "matplotlib"
+    "flit_core >=2,<4"
 ]
 build-backend = "flit_core.buildapi"
-
-[tool.flit.metadata.requires-extra]
-test = [
-    "jupyterlab"
-]
 
 [tool.flit.metadata]
 module = "ipywardley"
@@ -18,4 +11,13 @@ author-email = "anj@anjackson.net"
 home-page = "https://github.com/anjackson/ipywardley"
 classifiers = ["License :: OSI Approved :: Apache Software License"]
 description-file = "README.md"
+requires = [
+    "ipython", 
+    "matplotlib"
+]
+
+[tool.flit.metadata.requires-extra]
+test = [
+    "jupyterlab"
+]
 
