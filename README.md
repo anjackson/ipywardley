@@ -7,7 +7,25 @@ Bringing Wardley Map magic to Jupyter notebooks
 
 This plugin makes it easy to generate [Wardley Maps](https://wardley-maps-community.github.io/awesome-wardley-maps/) using [Jupyter Notebooks](https://jupyter.org/).
 
-It supports a subset of the syntax defined by the [Online Wardley Maps](https://onlinewardleymaps.com/) service. This simple language can be use to specify the map via the `%%wardley` cell magic. [See this example notebook for a detailed introduction](https://github.com/anjackson/ipywardley/blob/main/test/wardley-maps.ipynb).
+It supports a subset of the syntax defined by the [Online Wardley Maps](https://onlinewardleymaps.com/) service. This simple language can be use to specify the map via the `%%wardley` cell magic. 
+
+## Installation
+
+First, [install Jupyter](https://jupyter.org/install). Then before running it, install `ipywardley`. e.g. if you are using pip:
+
+    pip install ipywardley
+    
+Then, run Jupyter:
+
+    jupyter-lab
+    
+## Usage
+
+Open up a new Python 3 notebook, and use this command to enable the module:
+
+    %load_ext ipywardley
+    
+Now you can use the `%%wardley` directive and create maps. [See this example notebook for a detailed example of how to do this](https://github.com/anjackson/ipywardley/blob/main/test/wardley-maps.ipynb).
 
 ## Screenshot
 
@@ -32,3 +50,13 @@ It supports a subset of the syntax defined by the [Online Wardley Maps](https://
 - [ ] Add 'Uncharted' and 'Industrialised' labels
 - [ ] Support rendering from a file, via e.g. `%wardley file=example.owm style=plain`
 - [ ] Make it easier to download the SVG/rendered version?
+
+## Development
+
+1. Clone this directory.
+2. Set up a `virtualenv` and activate it.
+3. Modify the code.
+4. Run `flit install`
+5. Run `jupyter-lab` and test your changes.
+6. Repeat 3-5 _ad infinitum_.
+7. Turn your changes into a pull request.
