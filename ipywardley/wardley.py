@@ -183,7 +183,7 @@ class WardleyMagics(Magics):
             else:
                 for n in edge:
                     if n not in wm.nodes:
-                        show_warning("Could not find a component called '%s'!" % n)
+                        self.show_warning("Could not find a component called '%s'!" % n)
         if len(l) > 0:
             lc = LineCollection(l, color=matplotlib.rcParams['axes.edgecolor'], lw=1)
             #lc = LineCollection(l, color="k", lw=1, linestyle=['-'])
