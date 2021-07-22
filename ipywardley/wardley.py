@@ -223,7 +223,6 @@ class WardleyMagics(Magics):
                 
         # Add the notes:
         for note in wm.notes:
-            print(f'note: {note}')
             plt.text(note['mat'], note['vis'], note['text'], fontsize=10, fontfamily=matplotlib.rcParams['font.family'])
 
         plt.yticks([0.0,0.925], ['Invisible', 'Visible'], rotation=90, verticalalignment='bottom')
