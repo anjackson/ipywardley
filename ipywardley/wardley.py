@@ -15,6 +15,7 @@ class WardleyMap():
     _coords_regexs = "\[\s*([\d\.-]+)\s*,\s*([\d\.-]+)\s*\]"
     _node_regex = re.compile(r"^(\w+) ([\w ]+)\s+{COORDS}(\s+label\s+{COORDS})*".format(COORDS=_coords_regexs))
     _evolve_regex = re.compile(r"^evolve ([\w ]+)\s+([\d\.-]+)(\s+label\s+{COORDS})*".format(COORDS=_coords_regexs))
+    _note_regex = re.compile(r"^(\w+) ([\S ]+)\s+{COORDS}\s*".format(COORDS=_coords_regexs))
 
     def __init__(self, owm):
         # Defaults:
@@ -83,6 +84,25 @@ class WardleyMap():
                     self.evolutions[matches[0]] = evol
                 else:
                     self.warnings.append("Could not parse evolution line: %s" % cl)
+            elif cl.startswith('note'):
+                match = self._note_regex.search(cl)
+                if match != None:
+                    matches = match.groups()
+                    note = {
+                        'text' : matches[1],
+                    }
+                    # Handle text position adjustments:
+                    if matches[2]:
+                        note['vis'] = float(matches[2])
+                        note['mat'] = float(matches[3])
+                    else:
+                        # Default to a small additional offset:
+                        note['vis'] = .2
+                        note['mat'] = .2
+                    # And store it:
+                    self.notes.append( note)
+                else:
+                    self.warnings.append("Could not parse note line: %s" % cl)
             elif cl.startswith('#'):
                 # Skip comments...
                 pass
@@ -200,6 +220,10 @@ class WardleyMagics(Magics):
                 xy=(n['mat'], n['vis']), xycoords='data',
                 xytext=(n['label_x'], n['label_y']), textcoords='offset pixels',
                 horizontalalignment='left', verticalalignment='bottom')
+                
+        # Add the notes:
+        for note in wm.notes:
+            plt.text(note['mat'], note['vis'], note['text'], fontsize=10, fontfamily=matplotlib.rcParams['font.family'])
 
         plt.yticks([0.0,0.925], ['Invisible', 'Visible'], rotation=90, verticalalignment='bottom')
         plt.ylabel('Visibility', fontweight='bold')
