@@ -42,7 +42,7 @@ Now you can use the `%%wardley` directive and create maps. [See this example not
   - [ ] `y-axis Value Chain->Invisible->Visible` or `y-axis none` to make 'Visibility' axis optional.
   - [ ] `evolve`
   - [ ] `annotation` & `annotations`?
-  - [ ] `note`?
+  - [x] `note`?
   - [ ] `market` nodes?
   - [ ] `pipeline` nodes?
   - [ ] node `inertia`?
