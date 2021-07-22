@@ -102,7 +102,7 @@ class WardleyMap():
                     # And store it:
                     self.notes.append( note)
                 else:
-                    self.warnings.append("Could not parse evolution line: %s" % cl)
+                    self.warnings.append("Could not parse note line: %s" % cl)
             elif cl.startswith('#'):
                 # Skip comments...
                 pass
