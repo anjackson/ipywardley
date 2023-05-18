@@ -231,7 +231,7 @@ class WardleyMagics(Magics):
         plt.xlabel('Evolution', fontweight='bold')
 
         plt.tick_params(axis='x', direction='in', top=True, bottom=True, grid_linewidth=1)
-        plt.grid(b=True, axis='x', linestyle='--')
+        plt.grid(visibilty=True, axis='x', linestyle='--') # Updated as 'b' now depreciated
         plt.tick_params(axis='y', length=0)
 
         # Show warnings if problems were found:
