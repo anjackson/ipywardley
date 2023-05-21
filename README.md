@@ -46,7 +46,9 @@ Now you can use the `%%wardley` directive and create maps. [See this example not
   - [ ] `market` nodes?
   - [ ] `pipeline` nodes?
   - [ ] node `inertia`?
-  - [ ] `+<>`, `+>`, `+<` links to indicate flow?
+  - [x] `+<>` links to indicate flow.
+  - [ ] `+>` links to indicate flow.
+  - [ ] `+<` links to indicate flow.
   - [ ] `Hot Water+'$0.10'>Kettle` flow labels?
   - [ ] `build`, `buy`, `outsource` node augmentation?
   - [ ] `submap` and related syntax?
