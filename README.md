@@ -64,3 +64,12 @@ Now you can use the `%%wardley` directive and create maps. [See this example not
 5. Run `jupyter-lab` and test your changes.
 6. Repeat 3-5 _ad infinitum_.
 7. Turn your changes into a pull request.
+
+
+## Change Log
+
+- _0.0.6_
+  - [Added support for the bluelines +<> within Wardley Maps code.](https://github.com/anjackson/ipywardley/pull/7)
+- _0.0.5_
+  - [Updated the 'b' parameter to 'visibility' as 'b' now depreciated.](https://github.com/anjackson/ipywardley/pull/6)
+
