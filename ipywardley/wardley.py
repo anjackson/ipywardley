@@ -22,6 +22,7 @@ class WardleyMap():
         self.title = None
         self.nodes = {}
         self.edges = []
+        self.bluelines = []
         self.evolutions = {}
         self.annotations = []
         self.annotation = {}
@@ -64,6 +65,14 @@ class WardleyMap():
             elif "->" in cl:
                 n_from, n_to = cl.split('->')
                 self.edges.append([n_from.strip(), n_to.strip()])
+            elif "+<>" in cl:
+                edge_parts = cl.split('+<>')
+                if len(edge_parts) != 2:
+                    self.warnings.append(f"Unexpected format for blueline definition: {cl}. Skipping this edge.")
+                    continue
+                n_from, n_to = edge_parts
+                self.bluelines.append([n_from.strip(), n_to.strip()])
+                continue
             elif cl.startswith('evolve '):
                 match = self._evolve_regex.search(cl)
                 if match != None:
@@ -208,7 +217,22 @@ class WardleyMagics(Magics):
             lc = LineCollection(l, color=matplotlib.rcParams['axes.edgecolor'], lw=1)
             #lc = LineCollection(l, color="k", lw=1, linestyle=['-'])
             ax.add_collection(lc)
-
+            
+        # Plot bluelines :
+        b = []
+        for blueline in wm.bluelines:
+            if blueline[0] in wm.nodes and blueline[1] in wm.nodes:
+                n_from = wm.nodes[blueline[0]]
+                n_to = wm.nodes[blueline[1]]
+                b.append([ (n_from['mat'],n_from['vis']), (n_to['mat'],n_to['vis']) ])
+            else:
+                for n in blueline:
+                    if n not in wm.nodes:
+                        show_warning("Could not find a component called '%s'!" % n)
+        if len(b) > 0:
+            lc = LineCollection(b, color='blue', lw=2)
+            ax.add_collection(lc)       
+            
         # Add the nodes:
         for node_title in wm.nodes:
             n = wm.nodes[node_title]
