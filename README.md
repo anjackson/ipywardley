@@ -68,8 +68,8 @@ Now you can use the `%%wardley` directive and create maps. [See this example not
 
 ## Change Log
 
-- _0.0.6_
+- 0.0.6:
   - [Added support for the bluelines +<> within Wardley Maps code.](https://github.com/anjackson/ipywardley/pull/7)
-- _0.0.5_
+- 0.0.5:
   - [Updated the 'b' parameter to 'visibility' as 'b' now depreciated.](https://github.com/anjackson/ipywardley/pull/6)
 
