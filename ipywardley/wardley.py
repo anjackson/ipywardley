@@ -158,6 +158,10 @@ class WardleyMagics(Magics):
         fig = None
         figsize = (12,8)
         matplotlib.rcParams.update(matplotlib.rcParamsDefault)
+        
+        if wm.style is None: #Default to Wardley style is no style provided.
+            wm.style = 'wardley'
+            
         if wm.style == 'wardley':
             # Use a monospaced font:
             matplotlib.rcParams['font.family'] = 'monospace'
