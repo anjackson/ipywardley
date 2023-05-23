@@ -23,7 +23,7 @@ class WardleyMap():
         self.nodes = {}
         self.edges = []
         self.bluelines = []
-        self.evolutions = {}
+        self.evolves = {}
         self.annotations = []
         self.annotation = {}
         self.notes = []
@@ -180,6 +180,10 @@ class WardleyMagics(Magics):
             # And plot as normal:
             self.generate_wardley_plot(ax, wm)
         elif wm.style in ['xkcd', 'handwritten']:
+            # Suppress font warnings in this case:
+            import logging
+            logging.getLogger('matplotlib.font_manager').setLevel(logging.ERROR)
+            # And plot in xkcd style:
             with plt.xkcd(scale=0.5):
                 fig, ax = plt.subplots(figsize=figsize)
                 self.generate_wardley_plot(ax, wm)
@@ -250,8 +254,8 @@ class WardleyMagics(Magics):
             else:
                 show_warning("Could not find an evolve component called '%s'!" % evolve_title)
         if len(e) > 0:
-        lc = LineCollection(e, color='red', lw=1, linestyles='dotted')
-        ax.add_collection(lc)              
+            lc = LineCollection(e, color='red', lw=1, linestyles='dotted')
+            ax.add_collection(lc)              
             
         # Add the nodes:
         for node_title in wm.nodes:
@@ -268,9 +272,9 @@ class WardleyMagics(Magics):
         # Add the evolve nodes:
         for evolve_title, evolve in wm.evolves.items():
             n = wm.nodes[evolve_title]
-            plt.plot(evolve['mat'], n['vis'], marker='o', color=matplotlib.rcParams['axes.facecolor'], markeredgecolor='red', markersize=3)
+            plt.plot(evolve['mat'], n['vis'], marker='o', color=matplotlib.rcParams['axes.facecolor'], markeredgecolor='red')
             
-            ax.annotate(evolve_title, fontsize=5, fontfamily=matplotlib.rcParams['font.family'],
+            ax.annotate(evolve_title, fontsize=10, fontfamily=matplotlib.rcParams['font.family'],
                 xy=(evolve['mat'], n['vis']), xycoords='data',
                 xytext=(n['label_x'], n['label_y']), textcoords='offset pixels',
                 horizontalalignment='left', verticalalignment='bottom')
@@ -285,11 +289,9 @@ class WardleyMagics(Magics):
         plt.xlabel('Evolution', fontweight='bold')
 
         plt.tick_params(axis='x', direction='in', top=True, bottom=True, grid_linewidth=1)
-        plt.grid(visibilty=True, axis='x', linestyle='--') # Updated as 'b' now depreciated
+        plt.grid(visible=True, axis='x', linestyle='--') # Updated as 'b' now depreciated
         plt.tick_params(axis='y', length=0)
 
         # Show warnings if problems were found:
         for message in wm.warnings:
             self.show_warning(message)
-        if len(wm.evolutions) > 0:
-            self.show_warning("Displaying evolutions is not implemented yet!")
