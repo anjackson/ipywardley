@@ -264,6 +264,16 @@ class WardleyMagics(Magics):
                 xy=(n['mat'], n['vis']), xycoords='data',
                 xytext=(n['label_x'], n['label_y']), textcoords='offset pixels',
                 horizontalalignment='left', verticalalignment='bottom')
+            
+        # Add the evolve nodes:
+        for evolve_title, evolve in wm.evolves.items():
+            n = wm.nodes[evolve_title]
+            plt.plot(evolve['mat'], n['vis'], marker='o', color=matplotlib.rcParams['axes.facecolor'], markeredgecolor='red', markersize=3)
+            
+            ax.annotate(evolve_title, fontsize=5, fontfamily=matplotlib.rcParams['font.family'],
+                xy=(evolve['mat'], n['vis']), xycoords='data',
+                xytext=(n['label_x'], n['label_y']), textcoords='offset pixels',
+                horizontalalignment='left', verticalalignment='bottom')
                 
         # Add the notes:
         for note in wm.notes:
