@@ -72,6 +72,10 @@ Now you can use the `%%wardley` directive and create maps. [See this example not
 
 - 0.0.6:
   - [Added support for the bluelines +<> within Wardley Maps code.](https://github.com/anjackson/ipywardley/pull/7)
+  - [Updated to support additional characters within nodes and evolve code lines](https://github.com/anjackson/ipywardley/pull/8)
+  - [Default to 'wardley' style if no style provided.](https://github.com/anjackson/ipywardley/pull/9)
+  - [Draw evolve lines within the map.](https://github.com/anjackson/ipywardley/pull/10)
+  - [Add the red evolve nodes to the map.](https://github.com/anjackson/ipywardley/pull/11)
 - 0.0.5:
   - [Updated the 'b' parameter to 'visibility' as 'b' now depreciated.](https://github.com/anjackson/ipywardley/pull/6)
 
