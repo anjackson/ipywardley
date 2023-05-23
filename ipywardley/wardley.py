@@ -77,22 +77,26 @@ class WardleyMap():
                 match = self._evolve_regex.search(cl)
                 if match != None:
                     matches = match.groups()
-                    evol = {
-                        'title' : matches[0],
+                    evolve = {
+                        'title': matches[0],
                         'mat' : float(matches[1])
                     }
                     # Handle label position adjustments:
-                    if matches[2]:
-                        evol['label_x'] = float(matches[3])
-                        evol['label_y'] = float(matches[4])
+                    if matches[3] is not None:
+                        evolve['label_x'] = float(matches[3])
                     else:
-                        # Default to a small additional offset:
-                        evol['label_x'] = 2
-                        evol['label_y'] = 2
+                        evolve['label_x'] = 2
+                        
+                    if matches[4] is not None:
+                        evolve['label_y'] = float(matches[4])
+                    else:
+                        evolve['label_y'] = 2
+
                     # And store it:
-                    self.evolutions[matches[0]] = evol
+                    self.evolves[matches[0]] = evolve
+                    continue
                 else:
-                    self.warnings.append("Could not parse evolution line: %s" % cl)
+                    self.warnings.append("Could not parse evolve line: %s" % cl)
             elif cl.startswith('note'):
                 match = self._note_regex.search(cl)
                 if match != None:
@@ -236,6 +240,18 @@ class WardleyMagics(Magics):
         if len(b) > 0:
             lc = LineCollection(b, color='blue', lw=2)
             ax.add_collection(lc)       
+
+        # Plot Evolve
+        e = []
+        for evolve_title, evolve in wm.evolves.items():
+            if evolve_title in wm.nodes:
+                n_from = wm.nodes[evolve_title]
+                e.append([ (n_from['mat'],n_from['vis']), (evolve['mat'], n_from['vis']) ])
+            else:
+                show_warning("Could not find an evolve component called '%s'!" % evolve_title)
+        if len(e) > 0:
+        lc = LineCollection(e, color='red', lw=1, linestyles='dotted')
+        ax.add_collection(lc)              
             
         # Add the nodes:
         for node_title in wm.nodes:
