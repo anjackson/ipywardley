@@ -13,8 +13,8 @@ class WardleyMap():
 
     # Developed using https://regex101.com/
     _coords_regexs = "\[\s*([\d\.-]+)\s*,\s*([\d\.-]+)\s*\]"
-    _node_regex = re.compile(r"^(\w+) ([\w ]+)\s+{COORDS}(\s+label\s+{COORDS})*".format(COORDS=_coords_regexs))
-    _evolve_regex = re.compile(r"^evolve ([\w ]+)\s+([\d\.-]+)(\s+label\s+{COORDS})*".format(COORDS=_coords_regexs))
+    _node_regex = re.compile(r"^(\w+) ([a-zA-Z0-9_./&' )(-]+)\s+{COORDS}(\s+label\s+{COORDS})*".format(COORDS=_coords_regexs))
+    _evolve_regex = re.compile(r"^evolve ([\w \/)(-]+)\s+([\d\.-]+)(\s+label\s+{COORDS})*".format(COORDS=_coords_regexs))
     _note_regex = re.compile(r"^(\w+) ([\S ]+)\s+{COORDS}\s*".format(COORDS=_coords_regexs))
 
     def __init__(self, owm):
