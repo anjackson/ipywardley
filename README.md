@@ -40,7 +40,7 @@ Now you can use the `%%wardley` directive and create maps. [See this example not
 - Support more of [the OWM syntax and features](https://onlinewardleymaps.com/#usage) (?=maybe?):
   - [ ] `evolution Novel->Emerging->Good->Best` and `evolution X` offering the [different sets of x-axis labels](https://twitter.com/swardley/status/1326583279139627008/photo/1). 
   - [ ] `y-axis Value Chain->Invisible->Visible` or `y-axis none` to make 'Visibility' axis optional.
-  - [ ] `evolve`
+  - [x] `evolve`
   - [ ] `annotation` & `annotations`?
   - [x] `note`?
   - [ ] `market` nodes?
