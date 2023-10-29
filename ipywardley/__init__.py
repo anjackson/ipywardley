@@ -1,5 +1,5 @@
 """Bringing Wardley Map magic to Jupyter notebooks."""
-__version__ = '0.0.6'
+__version__ = '0.0.7'
 
 from .wardley import WardleyMagics
 

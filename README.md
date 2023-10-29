@@ -67,9 +67,18 @@ Now you can use the `%%wardley` directive and create maps. [See this example not
 6. Repeat 3-5 _ad infinitum_.
 7. Turn your changes into a pull request.
 
+## Making a Release
+
+As per https://flit.pypa.io/en/stable/
+
+1. Update version in `\_\_init\_\_.py`
+2. Commit, tag, push.
+3. `flit publish`
 
 ## Change Log
 
+- 0.0.7:
+  - Switch from `plt.grid(visibility=True, ...)` to `plt.grid(visible=True, ...)`.
 - 0.0.6:
   - [Added support for the bluelines +<> within Wardley Maps code.](https://github.com/anjackson/ipywardley/pull/7)
   - [Updated to support additional characters within nodes and evolve code lines](https://github.com/anjackson/ipywardley/pull/8)
